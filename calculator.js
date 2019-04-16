@@ -1,6 +1,4 @@
 
-// Remember about object['fieldName'] access, that function can be passed around etc. This may help you solve this task.
-
 const operations = document.querySelectorAll(".operation");
 const numbers = document.querySelectorAll(".number");
 const equal = document.querySelector(".equal");
@@ -43,11 +41,6 @@ const getResults = () => {
   // Reseting all second value related flags to initial state
   isFirstInput = true;
   isSecondDone = false;
-  // All those actions basically makes us to point where first value is filled
-  // and operation is to be changed, or to be kept if we want to continue doing same thing
-  // first oper second  equal first oper ---> oper/second
-  // 5     +    10      =     15    +    <--- we can keep this operation or change
-  // Hence can be continued like 15 - 8 = 7 if we change oper, or 15 + 5 = 20 if we doesn't
 };
 
 operations.forEach(operation =>
@@ -56,18 +49,14 @@ operations.forEach(operation =>
     prevSecond = undefined;
     // We get an operation using obj['field'] notation to access field
     const operation = OPERATIONS[e.target.innerText];
-    // if both are done and operation is clicked again
-    // we get results using prev operation (as if we click = ) and then we change an operation
+    
     if (isFirstDone && isSecondDone) {
       getResults();
       action = operation;
       // This return is to avoid code at the bottom from execution
       return;
     }
-    // if First is valid means we can safely choose operation, and set first as done
-
-    // Here we assign function we do not call it like operation(). It's done to save it and execute later
-    // in getResult
+   
     if (isFirstDone || !isFirstInput) {
       action = operation;
       isFirstDone = true;
@@ -120,8 +109,6 @@ equal.addEventListener("click", () => {
   } else if (isFirstDone && prevSecond) {
     second = prevSecond;
     getResults();
-  //} else if (isFirstDone && action === "Sqrt") {
-    //getResults();
   }
 });
 
