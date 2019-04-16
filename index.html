@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+
+</head>
+<style>
+	.container {
+		display: grid;
+        width: 350px;
+		grid-template-columns: 80px 80px 80px 80px;
+		grid-gap: 8px;
+        background-color: #e0ebeb;
+	}
+
+	.button {
+		font-size: 30px;
+		display: flex;
+		align-items: center;
+        background-color: #a3c2c2;
+		justify-content: center;
+		border: 1px solid lightgray;
+		height: 2.5em;
+		width: 2.5em;
+		border-radius: 0.5rem;
+		font-family: sans-serif, Helvetica;
+		cursor: pointer;
+		transition: background-color 0.1s;
+		user-select: none;
+	}
+
+	.button:hover {
+		background-color: lightgray;
+	}
+
+	.button:active {
+		background-color: darkgray;
+		transform: scale(0.98);
+	}
+
+	div.result {
+		border-radius: 0.5rem;
+		font-size: 30px;
+		border: 1px solid lightgray;
+        background-color: whitesmoke !important;
+		font-family: sans-serif, Helvetica;
+		min-height: 1em;
+		max-height: 3em;
+		grid-column-start: 1;
+		grid-column-end: -2;
+		align-items: center;
+		flex-direction: row-reverse;
+		display: flex;
+		padding: 0.5em;
+		overflow: auto;
+	}
+
+	p {
+		font-size: 20px;
+		max-width: 360px;
+		font-family: Helvetica, sans-serif;
+	}
+    
+</style>
+
+<body>
+	<div class="container">
+		<div class="result">0</div>
+        <div class="button reset">C</div>
+        <div class="button operation">Pow</div>
+        <div class="button operation">Mod</div>
+        <input class="button" type=button value="√" OnClick="result.innerText=Math.sqrt(parseFloat(result.innerText))">
+        <div class="button number"></div>
+		<div class="button number">7</div>
+		<div class="button number">8</div>
+		<div class="button number">9</div>
+		<div class="button operation">+</div>
+		<div class="button number">4</div>
+		<div class="button number">5</div>
+		<div class="button number">6</div>
+		<div class="button operation">-</div>
+		<div class="button number">1</div>
+		<div class="button number">2</div>
+		<div class="button number">3</div>
+		<div class="button operation">*</div>
+		<div class="button number">0</div>
+		<div class="button number">.</div>
+		<div class="button equal">=</div>
+		<div class="button operation">/</div>
+	</div>
+	<script src='./calculator.js'>
+
+	</script>
+</body>
+
+</html>
